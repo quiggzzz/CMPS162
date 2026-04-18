@@ -21,11 +21,22 @@
 console.log("Variables");
 
 // 1. Create a string variable called 'name' and store your name in it.
+let Michael = "Michael";
 
 // 2. Write code to alert your name in the browser.
+alert("Michael");
 
 // 3. Create two number variables name 'first' and 'second'. Assign 13 to
 //    first and 26 to second. Alert the sum of the two variables in the browser.
+// Assign values to the variables
+let first = 13;
+let second = 26;
+
+// Calculate the sum
+let sum = first + second;
+
+// Alert the sum in the browser
+alert(sum);
 
 
 
@@ -38,6 +49,9 @@ console.log("Values");
 //    Assign "10" to the string variable and 99 to the number variable.
 //    Alert the value of string_variable plus number_variable (use the +
 //    operator). Can you explain what happened?
+let string_variable = "10"; // String type
+let number_variable = 99;   // Number type
+alert(string_variable + number_variable); // Result: "1099"
 
 
 
@@ -47,16 +61,19 @@ console.log("Values");
 console.log("Expressions");
 
 // 1. Explain what the result of 13 % 5 will be.
-
+//the expression 13 % 5 will result in 3. The % is the remainder operator, which returns the remainder left over when one operand is divided by a second operand.
 // 2. What will be printed to the console after executing the following 3
-//    lines? Why?
-var num = 3;
-console.log(num++);
-console.log(++num);
+//    lines? Why?  // the code will print a 3 followed by a 5.
+var num = 3;  // the code will print a 3 followed by a 5.
+console.log(num++); // This uses the postfix increment operator. It prints the current value of num 3 to the console first, and then increments num to 4.
+console.log(++num); // This uses the prefix increment operator. It increments num from 4 to 5 first, and then prints the new value 5 to the console.
 
-// 3. Remove the ambiguity from the following line but keep the result
+  
+
+  // 3. Remove the ambiguity from the following line but keep the result
 //    exactly the same.
 console.log(2 * 3 + 3 - 4 / 3);
+  console.log(((2*3)+3)-(4/3));
 
 
 
