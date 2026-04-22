@@ -13,7 +13,14 @@ console.log("Functions");
 
 // 1. Write a function named 'greet' that greets the user. The greeting should appear
 //    in an alert or logged to the console. Make sure that you call it as well.
+function greet() {
+  console.log("Hello! Welcome!");
+  // or use alert:
+  // alert("Hello! Welcome!");
+}
 
+// Call the function
+greet();
 
 
 //
@@ -24,14 +31,27 @@ let num2 = 7;
 // 2. a. Write a function named 'sumAndPrint' that takes two numbers as parameters,
 //    adds them together, and logs the result to the console.
 //    b. Call the function passing in num1 and num2. 
+// a. Function that adds two numbers and prints the result
+function sumAndPrint(a, b) {
+  let sum = a + b;
+  console.log(sum);
+}
 
+// b. Call the function
+sumAndPrint(num1, num2);
 
 
 // 3. a. Write a function named 'sum' that takes two numbers as parameters,
 //    adds them together, and returns the result. 
 //    b. Set the default value of both numbers to 0.
 //    c. Call the function and log the result to the console.
+// a & b. Function with default parameters
+function sum(a = 0, b = 0) {
+  return a + b;
+}
 
+// c. Call the function and log the result
+console.log(sum(5, 7));
 
 
 // 4. a. create a variable that contains an array of at least six different integers. 
@@ -41,7 +61,27 @@ let num2 = 7;
 //    should be the number 3. Note that the function should take an array as input data.
 //    d. Call the function passing in the array you created in step 4.a and log the result 
 //    to the console. 
+// a. Array of at least six integers
+let numbers = [23, 54, 3, 6, 4, 46];
 
+// b. Log the array
+console.log(numbers);
+
+// c. Function to find the smallest number in an array
+function findSmallest(arr) {
+  let smallest = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] < smallest) {
+      smallest = arr[i];
+    }
+  }
+
+  return smallest;
+}
+
+// d. Call the function and log the result
+console.log(findSmallest(numbers));
 
 
 // 5. a. create a variable that contains an array of at least six elements. 
@@ -51,7 +91,27 @@ let num2 = 7;
 //    example, everySecondElement([1, 2, 3, 4, 5, 6]) should return [2, 4, 6].
 //    Hint: one solution uses the % operator.
 //    d. Call the function passing in the array you created in step 5.a and log the result.
+// a. Array with at least six elements
+let items = [1, 2, 3, 4, 5, 6];
 
+// b. Log the array
+console.log(items);
+
+// c. Function to return every second element
+function everySecondElement(arr) {
+  let result = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    if (i % 2 !== 0) {
+      result.push(arr[i]);
+    }
+  }
+
+  return result;
+}
+
+// d. Call the function and log the result
+console.log(everySecondElement(items));
 //--------//
 // Switch //
 //--------//
@@ -66,7 +126,50 @@ console.log("Switch");
 //    case statements should log the name of the month to the console.
 //        e.g., if the thisMonth variable contains the number 1, then the word 'February' should be 
 //        logged to the console. 
+// a & b. Get current month number (0–11, so we add 1 to make it 1–12)
+let thisMonth = new Date().getMonth() + 1;
 
+// c. Switch statement to print month name
+switch (thisMonth) {
+  case 1:
+    console.log("January");
+    break;
+  case 2:
+    console.log("February");
+    break;
+  case 3:
+    console.log("March");
+    break;
+  case 4:
+    console.log("April");
+    break;
+  case 5:
+    console.log("May");
+    break;
+  case 6:
+    console.log("June");
+    break;
+  case 7:
+    console.log("July");
+    break;
+  case 8:
+    console.log("August");
+    break;
+  case 9:
+    console.log("September");
+    break;
+  case 10:
+    console.log("October");
+    break;
+  case 11:
+    console.log("November");
+    break;
+  case 12:
+    console.log("December");
+    break;
+  default:
+    console.log("Invalid month");
+}
 
 
 //-------//
@@ -88,7 +191,21 @@ console.log("While");
 //    returns the same results as the factorial_for function above.
 //    b. call your factorial_while function passing in the number 9 as the argument
 //    and log the result to the console.
+// a. Factorial using a while loop
+function factorial_while(n) {
+  let result = 1;
+  let i = 1;
 
+  while (i <= n) {
+    result *= i;
+    i++;
+  }
+
+  return result;
+}
+
+// b. Call function with 9 and log result
+console.log(factorial_while(9));
 
 
 //----------//
@@ -100,7 +217,21 @@ console.log("Do-While");
 //    returns the same results as the factorial_for function above.
 //    b. call your factorial_do_while function passing in the number 9 as the argument
 //    and log the result to the console.
+// a. Factorial using a do...while loop
+function factorial_do_while(n) {
+  let result = 1;
+  let i = 1;
 
+  do {
+    result *= i;
+    i++;
+  } while (i <= n);
+
+  return result;
+}
+
+// b. Call function with 9 and log result
+console.log(factorial_do_while(9));
 
 
 </script>
