@@ -13,7 +13,16 @@ console.log("Events");
 
 // 1. Change the link (the <a> tag) in the HTML body below such that a hello
 //    message is displayed on a click event.
+<a href="#" id="myLink">Click me</a>
+  console.log("Input Fields");
 
+let link = document.getElementById("myLink");
+
+link.addEventListener("click", function (event) {
+  event.preventDefault(); // prevents page jump
+  console.log("Hello");
+  alert("Hello");
+});
 
 
 //--------------//
@@ -25,13 +34,39 @@ console.log("Input Fields");
 // 1. Change the background color to red for the input text field (the <input>
 //    tag) in the HTML body when obtaining the focus and change it back to
 //    white when the focus is lost.
-  
+let input = document.getElementById("myTextField");
+
+// When input gains focus
+input.addEventListener("focus", function () {
+  input.style.backgroundColor = "red";
+});
+
+// When input loses focus
+input.addEventListener("blur", function () {
+  input.style.backgroundColor = "white";
+});  
 
 // 2. Change the background color to the original input background color
+let input = document.getElementById("myTextField");
 
+// store original background color
+let originalColor = input.style.backgroundColor || "white";
+
+// when focused → change to red
+input.addEventListener("focus", function () {
+  input.style.backgroundColor = "red";
+});
+
+// when focus is lost → restore original color
+input.addEventListener("blur", function () {
+  input.style.backgroundColor = originalColor;
+});
   
 // 3. Change the text from the default font color to blue
+let input = document.getElementById("myTextField");
 
+// Change text color to blue
+input.style.color = "blue";
 
 
 //--------//
@@ -41,10 +76,22 @@ console.log("Images");
 
 // 1. Add an image to the HTML body (use the <img> tag). Make it disappear when
 //    someone clicks on it.
+let img = document.getElementById("myImage");
 
+img.addEventListener("click", function () {
+  img.style.display = "none";
+});
 // 2. Mouse over an object having an existing image and by mousing over another image appears in its place
 //
+let img = document.getElementById("myImage");
 
+img.addEventListener("mouseover", function () {
+  img.src = "image2.jpg"; // new image on hover
+});
+
+img.addEventListener("mouseout", function () {
+  img.src = "image1.jpg"; // original image when mouse leaves
+});
 
 //--------//
 // Styles //
@@ -53,10 +100,14 @@ console.log("Styles");
 
 // 1. Use the style to increase the text "The Pirates will advance to the World Series in 2025" 
 // Use a paragraph style code and increase the text to 8 em
-
+<p style="font-size: 8em;">
+  The Pirates will advance to the World Series in 2025
+</p>
 // 2. Use the style to decrease the text "The Pirates will advance to the World Series in 2025" 
 // Use a paragraph style code and increase the text to 5 em
-  
+<p style="font-size: 5em;">
+  The Pirates will advance to the World Series in 2025
+</p>  
 
 
 
