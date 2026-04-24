@@ -26,18 +26,52 @@ console.log("The Document Object Model");
 
 function fahrenheitToCelsius() {
   // implement your program here
-  // ...
+  // ...//  Call fahrenheitToCelsius on blur of Fahrenheit field
+fahrenheitInput.addEventListener("blur", fahrenheitToCelsius);
+//  Convert Fahrenheit → Celsius
+function fahrenheitToCelsius() {
+  let f = Number(fahrenheitInput.value);
+  let c = (f - 32) * (5 / 9);
+  celsiusInput.value = c.toFixed(1);
 }
 
 function celsiusToFahrenheit() {
   // implement your program here
-  // ...
+  // ...//  Call celsiusToFahrenheit on blur of Celsius field
+celsiusInput.addEventListener("blur", celsiusToFahrenheit);//  Convert Celsius → Fahrenheit
+function celsiusToFahrenheit() {
+  let c = Number(celsiusInput.value);
+  let f = (c * 9 / 5) + 32;
+  fahrenheitInput.value = f.toFixed(1);
 }
 
 // 2. Write a function to count the number of DOM elements in the body.
+function countElements() {
+  let count = document.body.querySelectorAll("*").length;
+  console.log("Number of elements in body:", count);
+}
 
+countElements();
 // 3. Write a function to count the number of text elements in the body.
+function countTextNodes() {
+  let count = 0;
 
+  function traverse(node) {
+    if (node.nodeType === 3 && node.nodeValue.trim() !== "") {
+      count++;
+    }
+
+    for (let i = 0; i < node.childNodes.length; i++) {
+      traverse(node.childNodes[i]);
+    }
+  }
+
+  traverse(document.body);
+
+  console.log("Number of text nodes in body:", count);
+}
+
+countTextNodes();
 
 
 </script>
