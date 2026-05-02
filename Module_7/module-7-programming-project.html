@@ -15,7 +15,7 @@ console.log("Browser Version");
 // 1. Complete the implementation and show the current verstion of your browser
 
 // 2. Paste the output that you receive from the first question
-
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36 Edg/147.0.0.0
 
 //-----------------//
 // Windows //
@@ -23,23 +23,53 @@ console.log("Browser Version");
 console.log("Windows");
 
 // 1. Create a way to open a window with the height & width of 500 each
-  
+let win500 = window.open(
+  "https://example.com",
+  "_blank",
+  "width=500,height=500"
+);  
 // 2. Create a way to close a window
-
+win500.close();
 // 3. Create a button to open a new window with preferences of a toolbar, location is true, no directories, no status
 //.   menubar, scrollbars, not resizable, height/width is 400
-
+window.open(
+  "https://example.com",
+  "_blank",
+  "toolbar=yes," +
+  "location=yes," +
+  "directories=no," +
+  "status=no," +
+  "menubar=yes," +
+  "scrollbars=yes," +
+  "resizable=no," +
+  "width=400," +
+  "height=400"
+);
 //-----------------//
 // History URLS //
 //-----------------//
 console.log("History");
   
 // 1. Create a function that provides a way to obtain the history of pages visited previously
-  
+function getHistoryCount() {
+  return window.history.length;
+}
+
+function goBack() {
+  window.history.back();      // go 1 page back
+}
+
+function goForward() {
+  window.history.forward();   // go 1 page forward
+}
+
+function goTo(steps) {
+  window.history.go(steps);   // e.g. go(-2) goes back 2
+}  
 
 // 2. Run in Live Server and copy the URL, and then visit www.yahoo.com, www.jeffreyjseaman.com, www.pkwinery.com, www.libertypolespirits.com, www.espn.com
 // Provide how many URLs you have in your history
-  
+  6
 
   //-----------------//
 // Cookies //
@@ -47,11 +77,34 @@ console.log("History");
 console.log("Cookies");
   
 // 1. Create a way to identify if cookies are enabled
-  
+function areCookiesEnabled() {
+  document.cookie = "cookieTest=1; SameSite=Strict";
+  const enabled = document.cookie.indexOf("cookieTest") !== -1;
+  document.cookie = "cookieTest=1; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+  return enabled;
+}  
 // 2. Create a way to set the cookie
-  
+function setCookie(name, value, daysToExpire) {
+  const date = new Date();
+  date.setTime(date.getTime() + (daysToExpire * 24 * 60 * 60 * 1000));
+  const expires = "expires=" + date.toUTCString();
+  document.cookie = name + "=" + value + ";" + expires + ";path=/;SameSite=Strict";
+}  
 // 3. Create a way to obtain the cookie and display it on the screen
+function getCookie(name) {
+  const cookies = document.cookie.split("; ");
+  for (let cookie of cookies) {
+    const [key, val] = cookie.split("=");
+    if (key === name) return val;
+  }
+  return null;
+}
 
+function displayCookie(name) {
+  const val = getCookie(name);
+  document.getElementById("output").textContent =
+    val ? name + " = " + val : "Cookie not found.";
+}
 
 </script>
 </head>
